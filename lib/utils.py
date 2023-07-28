@@ -117,7 +117,9 @@ def sample_rotations_60():
 
 def load_obj(path_to_file):
     """ Load obj file.
-
+从.obj文件中加载3D模型，并将模型的顶点和面作为numpy数组返回
+逐行读取.obj文件并提取模型的顶点和面。顶点被存储在一个列表中，每个子列表包含一个顶点的x、y和z坐标。
+面被存储在一个列表中，每个子列表包含形成三角形的顶点的suoyin
     Args:
         path_to_file: path
 
@@ -218,6 +220,10 @@ def transform_coordinates_3d(coordinates, sRT):
 
     Returns:
         new_coordinates: [3, N]
+
+这是一个Python函数，接收两个参数并返回一个值。这个函数叫做 transform_coordinates_3d()。
+它似乎是用一个同质变换矩阵对一组三维坐标进行三维坐标变换。该函数首先检查输入的坐标是否有正确的形状，然后给输入的坐标添加一行1，使其成为同质坐标。
+然后使用输入的同质变换矩阵对同质坐标进行变换。最后，通过除以每行的最后一个元素，将转换后的同质坐标转换为非同质坐标。该函数返回转换后的非同质坐标。
 
     """
     assert coordinates.shape[0] == 3

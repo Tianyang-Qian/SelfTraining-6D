@@ -41,6 +41,7 @@ def loss_calculation(pred_r, pred_t, pred_c, target_r, target_t, model_points, i
     rotations = rotations.contiguous().transpose(2, 1).contiguous()
     model_points = model_points.view(bs, 1, num_point_mesh, 3).repeat(1, num_rot, 1, 1).view(bs*num_rot, num_point_mesh, 3)
     pred_r = torch.bmm(model_points, rotations)
+
     if idx[0].item() in sym_list:
         target_r = target_r[0].transpose(1, 0).contiguous().view(3, -1)
         pred_r = pred_r.permute(2, 0, 1).contiguous().view(3, -1)

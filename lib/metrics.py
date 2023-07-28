@@ -90,11 +90,16 @@ def batch_compute_adds(predict_RT, gt_RT, model_pts):
     
     return adds_list
 
+
+# 用于计算在给定阈值下的准确率，也就是ROC曲线上的纵坐标
 def compute_accuracy(dis_list, threshold):
     correct_num = np.sum(np.array(dis_list) < threshold)
     return correct_num / len(dis_list)
 
 def compute_auc(dis_list, max_threshold):
+    """
+    将阈值从0到最大阈值分成100个等间隔的部分，并计算每个阈值下的准确度。最后，它将所有的准确度乘以步长相加并乘以100除以最大阈值。
+    """
     step = max_threshold / 100
     thresholds = np.arange(0, max_threshold+step, step)
 
