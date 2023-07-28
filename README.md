@@ -6,15 +6,21 @@ This repo provides for the implementation of the ECCV'22 paper:
 
 ## Requirement
 
-- Ubuntu 18.04, CUDA 10.2, Python >= 3.6
+- Ubuntu 20.04, CUDA 11.3, pytorch 1.10.2
+- Python == 3.6
 - kaolin == 0.1.0
 - opencv-python == 4.5.4.58
+- imageio == 2.6.1
+- pillow == 6.2.2(<7.0.0)
+- matplotlib == 2.2.3(<3.0.0)
+- scipy == 1.4.1
 
 ## Installation
 
 Compile the knn module:
 ```bash
 cd lib/knn
+# pip install --upgrade https://github.com/unlimblue/KNN_CUDA/releases/download/0.2/KNN_CUDA-0.2-py3-none-any.whl
 python setup.py install --user
 ```
 
